@@ -81,7 +81,6 @@ a {
   transition: top ease 0.5s;
 
   width: 50%;
-  height: 28%;
   background: linear-gradient(180deg, #303030 0%, #292929 100%);
   border-radius: 12px;
 
@@ -95,6 +94,7 @@ a {
   width: 80%;
   height: 60px;
   font-size: 25px;
+  line-height: 60px;
 }
 
 .yellow {

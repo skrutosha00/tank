@@ -10,7 +10,7 @@ body {
 .wrapper {
   position: relative;
   overflow: hidden;
-  width: 360px;
+  min-width: 360px;
 }
 
 .header {
@@ -18,7 +18,7 @@ body {
 }
 
 .desk {
-  width: 360px;
+  min-width: 360px;
   height: 288px;
 
   background-image: url("../png/desk.png");

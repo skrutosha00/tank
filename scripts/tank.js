@@ -9,7 +9,7 @@ tankCont.appendChild(tank)
 
 let aims = [
     { type: 'stone_left', img: "../png/stone_left.png", location: [0, 378], ind: 2, dotLocation: [0 + 30, 378 + 30] },
-    { type: 'stone_right', img: "../png/stone_right.png", location: [235, 521], ind: 3, dotLocation: [235 + 30, 521 + 30] },
+    { type: 'stone_right', img: "../png/stone_right.png", location: [0, 521], ind: 3, dotLocation: [50, 521 + 30] },
     { type: 'tree', img: "../png/tree.png", location: [150, 124], ind: 1, dotLocation: [150 + 30, 124 + 70] },
     { type: 'tree', img: "../png/tree.png", location: [105, 358], ind: 3, dotLocation: [105 + 30, 358 + 30] },
     { type: 'tree', img: "../png/tree.png", location: [30, 184], ind: 1, dotLocation: [30 + 30, 184 + 30] },
@@ -24,7 +24,8 @@ for (let aim of aims) {
     aimPic.src = aim.img
     aimCont.appendChild(aimPic)
 
-    aimCont.style.left = aim.location[0] + 'px'
+    if (aim.type == 'stone_right') { aimCont.style.right = aim.location[0] + 'px' }
+    else { aimCont.style.left = aim.location[0] + 'px' }
     aimCont.style.top = aim.location[1] + 'px'
     aimCont.style.zIndex = aim.ind
 
@@ -37,7 +38,8 @@ for (let aim of aims) {
     dotPic.src = '../png/aim.png'
     dot.appendChild(dotPic)
 
-    dot.style.left = aim.dotLocation[0] + 'px'
+    if (aim.type == 'stone_right') { dot.style.right = aim.dotLocation[0] + 'px' }
+    else { dot.style.left = aim.dotLocation[0] + 'px' }
     dot.style.top = aim.dotLocation[1] + 'px'
 
     body.appendChild(dot)
@@ -96,7 +98,10 @@ function generateEnemies() {
         enemyPic.src = '../png/main_tank.png'
         enemy.appendChild(enemyPic)
 
-        enemy.style.left = enemyDot.dataset.type == 'tree' ? Number(enemyDot.style.left.replace('px', '')) - 30 + 'px' : enemyDot.style.left
+        if (enemyDot.dataset.type == 'stone_right') { enemy.style.right = enemyDot.style.right }
+        else {
+            enemy.style.left = enemyDot.dataset.type == 'tree' ? Number(enemyDot.style.left.replace('px', '')) - 30 + 'px' : enemyDot.style.left
+        }
         enemy.style.top = enemyDot.dataset.type == 'tree' ? Number(enemyDot.style.top.replace('px', '')) + 120 + 'px' : enemyDot.style.top
         enemy.classList.add('hidden')
 
@@ -124,7 +129,7 @@ function dotHandler(dot, enemy) {
     if (dot.dataset.side == 'enemy') {
         active = false
         localStorage.setItem('row_tank', 0)
-        
+
         if (!score) { prize.innerHTML = 0 }
         setTimeout(() => {
             dot.dataset.side = 'player'
