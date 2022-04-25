@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../Inter-V.ttf");
+}
+
+body {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home {
+  width: 75px;
+  height: 38px;
+
+  background: linear-gradient(180deg, #f2351b 0%, #b50202 100%);
+  border: 1px solid #563900;
+  box-sizing: border-box;
+  border-radius: 8px;
+
+  font-size: 16px;
+  text-align: center;
+  line-height: 38px;
+}
+
+.balance_field {
+  display: flex;
+
+  width: 157px;
+  height: 27px;
+
+  background: linear-gradient(180deg, #646464 0%, #3f3f3f 100%);
+  border: 1px solid #2e2e2e;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.balance_field img {
+  margin-left: 20px;
+}
+
+.balance {
+  width: 50%;
+  line-height: 25px;
+  text-align: center;
+
+  transition: color 0.5s ease;
+}
+
+.balance.anim {
+  color: green;
+}
+
+.warning {
+  position: absolute;
+  z-index: 10;
+  top: -50%;
+  left: calc(50% - 90px);
+  transition: top ease 0.5s;
+
+  width: 50%;
+  height: 28%;
+  background: linear-gradient(180deg, #303030 0%, #292929 100%);
+  border-radius: 12px;
+
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.again {
+  margin: 25px auto;
+  width: 80%;
+  height: 60px;
+  font-size: 25px;
+}
+
+.yellow {
+  background: linear-gradient(180deg, #ff9f2f 0%, #ffca0e 100%);
+  border: 1px solid #563900;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.red {
+  background: linear-gradient(180deg, #f2351b 0%, #b50202 100%);
+  border: 1px solid #563900;
+  box-sizing: border-box;
+  border-radius: 8px;
+}

@@ -1,0 +1,46 @@
+body {
+  background-image: url("../png/main_back.png");
+  background-size: cover;
+}
+
+.card_cont {
+  margin: 30px auto auto;
+}
+
+div.pic_cont,
+div.price_cont {
+  margin: 25px auto;
+}
+
+.pic_cont {
+  width: 207px;
+  height: 208px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(180deg, #fffdfd 0%, #919191 100%);
+  border-radius: 39px;
+}
+
+.pic_cont img {
+  width: 171px;
+  height: 172px;
+
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.pic_cont img.anim {
+  width: 200px;
+  height: 200px;
+}
+
+.price_cont {
+  width: 150px;
+  height: 56px;
+
+  text-align: center;
+  font-size: 40px;
+  line-height: 56px;
+}

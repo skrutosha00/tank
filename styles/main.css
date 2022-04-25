@@ -1,0 +1,46 @@
+body {
+  background-image: url("../png/main_back.png");
+  background-size: cover;
+}
+
+div {
+  margin: auto;
+}
+
+.balance_field {
+  margin-top: 40px;
+  margin-bottom: 120px;
+}
+
+.play {
+  margin-top: 60px;
+
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  line-height: 81px;
+
+  width: 224px;
+  height: 81px;
+
+  transition: color 2s ease;
+}
+
+.play.anim {
+  color: rgb(0, 0, 0);
+}
+
+.play .text {
+  margin-right: 15px;
+}
+
+.red {
+  margin-top: 60px;
+
+  width: 127px;
+  height: 64px;
+
+  text-align: center;
+  line-height: 64px;
+  font-size: 24px;
+}

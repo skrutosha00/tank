@@ -1,0 +1,29 @@
+body {
+  background-image: url("../png/main_back.png");
+  background-size: cover;
+}
+
+.text {
+  width: 95%;
+  height: 700px;
+  overflow: scroll;
+  margin: auto;
+  font-weight: 700;
+}
+
+.button {
+  margin: 10px auto auto;
+
+  width: 127px;
+  height: 64px;
+
+  text-align: center;
+  font-size: 36px;
+  line-height: 64px;
+
+  transition: width 0.5s ease;
+}
+
+.button.anim {
+  width: 160px;
+}
