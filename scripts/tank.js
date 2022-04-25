@@ -76,6 +76,8 @@ playAgainButton.onclick = () => {
     }
 
     generateEnemies()
+    deleteExplosion()
+    generateExplosion()
 
     playing = false
     active = true
@@ -85,6 +87,7 @@ playAgainButton.onclick = () => {
 }
 
 generateEnemies()
+generateExplosion()
 
 function generateEnemies() {
     let enemyDots = shuffle(document.querySelectorAll('.dot')).splice(3)
@@ -112,6 +115,31 @@ function generateEnemies() {
     }
 }
 
+function generateExplosion() {
+    for (let i = 0; i < 3; i++) {
+        let exp = document.createElement('img')
+        exp.src = '../png/explosion.png'
+        exp.classList.add('explosion', 'hidden')
+
+        exp.style.left = randInt(30, 60) + '%'
+        exp.style.bottom = randInt(5, 20) + '%'
+
+        body.appendChild(exp)
+    }
+}
+
+function revealExplosion() {
+    for (let exp of document.querySelectorAll('.explosion')) {
+        exp.classList.remove('hidden')
+    }
+}
+
+function deleteExplosion() {
+    for (let exp of document.querySelectorAll('.explosion')) {
+        exp.remove()
+    }
+}
+
 function dotHandler(dot, enemy) {
     if (!active) { return }
 
@@ -124,11 +152,14 @@ function dotHandler(dot, enemy) {
 
     dot.classList.add('hidden')
     dot.nextElementSibling.classList.add('hidden')
-    if (enemy) { enemy.classList.remove('hidden') }
+    if (enemy) {
+        enemy.classList.remove('hidden')
+    }
 
     if (dot.dataset.side == 'enemy') {
         active = false
         localStorage.setItem('row_tank', 0)
+        revealExplosion()
 
         if (!score) { prize.innerHTML = 0 }
         setTimeout(() => {
@@ -177,4 +208,8 @@ function shuffle(arr) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array
+}
+
+function randInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
